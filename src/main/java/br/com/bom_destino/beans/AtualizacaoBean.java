@@ -21,6 +21,8 @@ import br.com.bom_destino.utils.PropertiesUtil;
 @ManagedBean(name = "atualizacao")
 public class AtualizacaoBean implements Serializable {
 
+	private static final String FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS = "Falha ao atualizar dados geográficos";
+
 	private static final String TEXTO_SATELITE = "SATELITE";
 
 	private static final String TEXTO_IBGE = "IBGE";
@@ -54,7 +56,7 @@ public class AtualizacaoBean implements Serializable {
 			Response response = target.request().post(Entity.entity(corpo.toString(), MediaType.APPLICATION_JSON));
 			
 			if(!Family.SUCCESSFUL.equals(response.getStatusInfo().getFamily())) {
-				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao atualizar dados geográficos.", ""));
+				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS, ""));
 			}else {
 				FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "Dados geográficos atualizados com sucesso", ""));
 				
@@ -63,13 +65,13 @@ public class AtualizacaoBean implements Serializable {
 			}
 			
 		} catch (IllegalArgumentException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao atualizar dados geográficos", e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS, e.getMessage()));
 		} catch (NullPointerException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao atualizar dados geográficos", e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS, e.getMessage()));
 		} catch (IOException e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao atualizar dados geográficos", e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS, e.getMessage()));
 		} catch (Exception e) {
-			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, "Falha ao atualizar dados geográficos", e.getMessage()));
+			FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_ERROR, FALHA_AO_ATUALIZAR_DADOS_GEOGRAFICOS, e.getMessage()));
 		}
 	}
 
