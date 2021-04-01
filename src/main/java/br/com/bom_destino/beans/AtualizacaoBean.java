@@ -31,12 +31,17 @@ public class AtualizacaoBean implements Serializable {
 
 	private boolean ibge;
 	private boolean satelite;
+	private boolean adicionarIdentificacao;
 	
 	public void atualizarDados() {
 		ResteasyClient client = new ResteasyClientBuilder().build();
 		
 		try {
 			WebTarget target = client.target(PropertiesUtil.obterURI("gateway-api")).path("dados-geograficos-stur");
+			
+			if(adicionarIdentificacao) {
+				target = target.queryParam("nome-cliente", "img-web");
+			}
 			
 			StringBuilder corpo = new StringBuilder();
 			
@@ -89,5 +94,13 @@ public class AtualizacaoBean implements Serializable {
 
 	public void setSatelite(boolean satelite) {
 		this.satelite = satelite;
+	}
+
+	public boolean isAdicionarIdentificacao() {
+		return adicionarIdentificacao;
+	}
+
+	public void setAdicionarIdentificacao(boolean adicionarIdentificacao) {
+		this.adicionarIdentificacao = adicionarIdentificacao;
 	}
 }

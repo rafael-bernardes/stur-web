@@ -20,6 +20,9 @@
 				<p:selectBooleanCheckbox itemLabel="Satélite" value="#{atualizacao.satelite}" id="satelite"></p:selectBooleanCheckbox>
 			</div>
 			<div class="row" align="center" style="margin-top: 2em;">
+				<p:selectBooleanCheckbox itemLabel="Autenticar" value="#{atualizacao.adicionarIdentificacao}"></p:selectBooleanCheckbox>
+			</div>
+			<div class="row" align="center" style="margin-top: 2em;">
 				<p:commandButton value="Atualizar dados Geográficos" action="#{atualizacao.atualizarDados}" update=":header:growl ibge satelite"></p:commandButton>
 			</div>
 		</h:form>
