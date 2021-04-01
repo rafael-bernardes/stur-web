@@ -1,4 +1,4 @@
-package br.com.bom_destino.utils;
+package br.gov.bom_destino.stur_web.utils;
 
 import java.io.File;
 import java.io.FileInputStream;
