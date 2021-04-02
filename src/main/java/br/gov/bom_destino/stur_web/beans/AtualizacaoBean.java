@@ -67,6 +67,7 @@ public class AtualizacaoBean implements Serializable {
 				
 				ibge = false;
 				satelite = false;
+				adicionarIdentificacao = false;
 			}
 			
 		} catch (IllegalArgumentException e) {
