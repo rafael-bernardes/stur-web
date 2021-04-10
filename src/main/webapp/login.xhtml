@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+          "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<body>
+	<h:head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+		<h:outputStylesheet library="css" name="default.css" />
+	</h:head>
+	<h:form>
+		<div align="center" style="margin-top: 3em">
+			<h:outputText
+				value="Sistema de Tributação Territorial Urbana e Rural"></h:outputText>
+			<div style="margin-top: 2em">
+				<h:outputText value="Login:"></h:outputText>
+				<p:inputText value="#{login.login}" style="margin-left: 1em"></p:inputText>
+			</div>
+			<div style="margin-top: 1em">
+				<h:outputText value="Senha:"></h:outputText>
+				<p:password value="#{login.senha}" style="margin-left: 1em"></p:password>
+			</div>
+			<div align="center" style="margin-top: 1em">
+				<p:commandButton value="Ok" action="#{login.login}"></p:commandButton>
+			</div>
+		</div>
+	</h:form>
+	<div id="footer">
+		<ui:include src="template/footer.xhtml" />
+	</div>
+</body>
+
+</html>
